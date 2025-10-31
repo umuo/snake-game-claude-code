@@ -700,14 +700,38 @@ git push -f git@github.com:umuo/snake-game-claude-code.git main:gh-pages
 
 ### 部署到 Vercel
 
+#### 方式 1：通过 Vercel Dashboard（推荐）
+
+1. 访问 [Vercel 导入页面](https://vercel.com/new)
+2. 选择 "Import Git Repository"
+3. 选择 `umuo/snake-game-claude-code` 仓库
+4. 配置项目：
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. 点击 "Deploy" 按钮
+
+#### 方式 2：使用 Vercel CLI
+
 ```bash
 # 1. 安装 Vercel CLI
 npm i -g vercel
 
-# 2. 登录并部署
+# 2. 登录
 vercel login
+
+# 3. 部署
 vercel --prod
+
+# 或者使用提供的部署脚本
+./deploy-vercel.sh
 ```
+
+#### 方式 3：GitHub 集成（自动部署）
+
+1. 在 Vercel 中连接 GitHub 仓库
+2. 每次推送到 `main` 分支自动部署
+3. Pull Request 会自动创建预览部署
 
 ## 📚 学习资源
 
