@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贪吃蛇游戏 - Snake Game</title>
+    <link rel="stylesheet" href="/src/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 id="pageTitle">🐍 贪吃蛇游戏</h1>
+        <p class="subtitle" id="pageSubtitle">渐进式难度版</p>
+
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+          <button id="langBtn" class="lang-btn" aria-label="切换语言">
+            <span id="currentLang">🌐 中文</span>
+          </button>
+          <div id="langMenu" class="lang-menu hidden">
+            <button class="lang-option" data-lang="zh-CN">🇨🇳 中文</button>
+            <button class="lang-option" data-lang="en-US">🇺🇸 English</button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="game-wrapper">
+          <!-- Game Stats Board -->
+          <div class="stats-board">
+            <div class="stat-item">
+              <span class="stat-label" id="statScoreLabel">分数</span>
+              <span class="stat-value" id="statScore">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label" id="statLengthLabel">长度</span>
+              <span class="stat-value" id="statLength">3</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label" id="statProgressLabel">进度</span>
+              <span class="stat-value" id="statProgress">0/4</span>
+            </div>
+          </div>
+
+          <!-- Game Canvas Container -->
+          <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+
+            <!-- Fullscreen Button -->
+            <button id="fullscreenBtn" class="fullscreen-btn" aria-label="全屏">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <h2 id="controlsTitle">游戏控制</h2>
+          <div class="control-grid">
+            <div class="control-item">
+              <span class="key">↑ ↓ ← →</span>
+              <span class="description" id="controlMove">移动蛇</span>
+            </div>
+            <div class="control-item">
+              <span class="key">WASD</span>
+              <span class="description" id="controlAlt">备用移动键</span>
+            </div>
+            <div class="control-item">
+              <span class="key">SPACE / P</span>
+              <span class="description" id="controlPause">暂停/恢复</span>
+            </div>
+            <div class="control-item">
+              <span class="key">ENTER / R</span>
+              <span class="description" id="controlRestart">开始/重启</span>
+            </div>
+            <div class="control-item">
+              <span class="key">🚀 Hold Keys</span>
+              <span class="description" id="controlSpeedBoost">长按方向键加速</span>
+            </div>
+          </div>
+
+          <div class="game-info">
+            <h2 id="rulesTitle">游戏规则</h2>
+            <ul>
+              <li id="ruleSmallFood">🟡 小食物: +10 分，增长 1 格</li>
+              <li id="ruleBigFood">🔴 大食物: +50 分，增长 3 格，速度提升 15%</li>
+              <li id="ruleBigFoodSpawn">连续吃到 4 个小食物后会出现大食物</li>
+              <li id="ruleAvoid">避免撞墙和咬到自己！</li>
+            </ul>
+          </div>
+
+          <button id="startButton" class="btn btn-primary">开始游戏</button>
+        </div>
+      </main>
+
+      <footer>
+        <p id="footerText">使用 JavaScript ES2020 + HTML5 Canvas 构建</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
